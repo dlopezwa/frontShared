@@ -1,0 +1,6 @@
+<mat-list *ngFor="let application of applications">
+  <mat-list-item *ngFor="let functionality of application._embedded.functionalities">
+    <mat-icon matListIcon>folder</mat-icon>
+    <a href={{functionality.url}}> {{application.description}}  - {{functionality.description}}</a>
+    </mat-list-item>
+  </mat-list>

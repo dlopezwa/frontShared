@@ -31,6 +31,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -94,6 +95,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -125,7 +127,50 @@
           }
         }
       }
+    },
+    "shared-lib-example": {
+      "projectType": "library",
+      "root": "projects/shared-lib-example",
+      "sourceRoot": "projects/shared-lib-example/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/shared-lib-example/tsconfig.lib.json",
+            "project": "projects/shared-lib-example/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/shared-lib-example/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/shared-lib-example/src/test.ts",
+            "tsConfig": "projects/shared-lib-example/tsconfig.spec.json",
+            "karmaConfig": "projects/shared-lib-example/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/shared-lib-example/tsconfig.lib.json",
+              "projects/shared-lib-example/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
-  "defaultProject": "frontShared"
+  "defaultProject": "frontShared",
+  "cli": {
+    "analytics": "b8cb83f4-4b28-47af-ba5b-6542448bb457"
+  }
 }

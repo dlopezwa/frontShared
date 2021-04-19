@@ -1,0 +1,25 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode='side'>
+    <p>
+      <button mat-button (click)="sidenav.toggle()">
+        <span class="material-icons"> menu_open </span>
+      </button>
+    </p>
+    <mat-divider></mat-divider>
+      <app-list-applications></app-list-applications>
+    <mat-divider></mat-divider>
+  </mat-sidenav>
+
+  <div class="flexcontainer">
+    <div class="fix_sidevar">
+      <p>
+        <button mat-button (click)="sidenav.toggle()">
+          <span class="material-icons"> menu </span>
+        </button>
+      </p>
+    </div>
+    <div class="fix_container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</mat-sidenav-container>
